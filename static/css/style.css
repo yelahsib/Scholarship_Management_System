@@ -1,0 +1,217 @@
+/* Main body settings with simple background color */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Top blue header banner for the title */
+.top-banner {
+    background-color: #1a73e8; 
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+.top-banner h1 {
+    margin: 0;
+    font-size: 32px;
+}
+.top-banner p {
+    margin: 8px 0 0 0;
+    font-size: 16px;
+}
+
+/* Center container to keep layout aligned */
+.main-container {
+    width: 90%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* --- THE 3 DASHBOARD CARDS LAYER --- */
+/* Wrapper for the cards row */
+.box-wrapper {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Individual card style using standard float layout */
+.student-card {
+    background-color: white;
+    width: 28%;
+    float: left;
+    margin-right: 3%;
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px #ccc;
+    box-sizing: border-box;
+}
+
+/* Remove margin for the last card to fit perfectly */
+.box-wrapper .student-card:last-child {
+    margin-right: 0;
+}
+
+/* Clearfix to fix the float layout issue */
+.clear-fix {
+    clear: both;
+}
+
+/* Styling for icon and text inside the cards */
+.big-emoji {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+.student-card h2 {
+    margin: 5px 0;
+    color: #333;
+    font-size: 22px;
+}
+.student-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* --- BUTTONS GROUP STYLING --- */
+/* Common standard design for all main buttons across pages */
+.open-link, .top-add-btn, .form-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Colors for different button functions */
+.link-blue, .btn-blue-color { background-color: #0062cc; }
+.link-orange { background-color: #e67e22; }
+.link-green, .btn-green-color { background-color: #1e7e34; }
+.btn-purple-color { background-color: #007bff; }
+
+/* Cancel and Back button styling using gray color */
+.btn-secondary-color { 
+    background-color: #d13a08; 
+    margin-left: 10px;
+}
+
+/* Spacing for form button area */
+.form-btn-container {
+    margin-top: 15px;
+}
+
+/* Fixed button at bottom right to jump back to top */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+}
+.scroll-top-btn:hover {
+    background-color: #000000;
+}
+
+/* --- DATA TABLES SECTION --- */
+/* Outer box area for tables */
+.section-area {
+    margin-top: 40px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Header line for tables with title and right button */
+.table-title-bar {
+    margin-bottom: 15px;
+    height: 35px; 
+}
+.table-heading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    float: left;
+    line-height: 35px;
+}
+
+/* Aligning the add buttons to the right side */
+.top-add-btn {
+    float: right;
+}
+
+/* Simple normal table border setup */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+th {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+td {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #eee;
+}
+/* Shading for alternative table rows */
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Colors for action links in tables */
+.text-edit { color: #f39c12; text-decoration: none; font-weight: bold; }
+.text-delete { color: #dc3545; text-decoration: none; font-weight: bold; }
+
+/* --- FORM LAYOUTS (Add/Edit pages) --- */
+/* Centralized structure for student, scholarship, and application forms */
+form {
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #ccc;
+    max-width: 450px;
+    margin: 40px auto;
+    border-radius: 6px;
+    box-shadow: 0px 2px 5px #ddd;
+}
+form h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+form label { 
+    display: block; 
+    margin-top: 12px; 
+    font-weight: bold; 
+    color: #555;
+    font-size: 14px;
+}
+form input, form select { 
+    width: 100%; 
+    padding: 8px; 
+    margin-top: 5px; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+}
+

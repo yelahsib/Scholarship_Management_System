@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body class="container mt-5" style="max-width: 500px;">
+    <h2>Submit Scholarship Application</h2>
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <label>Select Student</label>
+            <select name="student_id" class="form-control" required>
+                {% for s in students %}
+                <option value="{{ s.student_id }}">{{ s.name }} (ID: {{ s.student_id }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label>Select Scholarship Scheme</label>
+            <select name="scholarship_id" class="form-control" required>
+                {% for sch in scholarships %}
+                <option value="{{ sch.scholarship_id }}">{{ sch.scholarship_name }} - Rs.{{ sch.amount }}</option>
+                {% endfor %}
+            </select>
+        </div>
+       <div class="form-btn-container">
+    <!-- Application match garna purple color button group -->
+    <button type="submit" class="form-btn btn-purple-color">Link & Apply</button>
+    <a href="/" class="form-btn btn-secondary-color">Cancel</a>
+</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scholarship Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Simple Top Blue Banner -->
+    <div class="top-banner">
+        <h1>Scholarship Management System</h1>
+        <p>Welcome to the Scholarship Management Dashboard</p>
+    </div>
+
+    <div class="main-container">
+
+        <!-- STUDENT STYLE 3 BOXES -->
+        <div class="box-wrapper">
+            
+            <!-- Box 1 -->
+            <div class="student-card box-blue">
+                <span class="big-emoji">👥</span>
+                <h2>Students</h2>
+                <p>Manage student records.</p>
+                <a href="#students-table" class="open-link link-blue">Open</a>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="student-card box-orange">
+                <span class="big-emoji">🎓</span>
+                <h2>Scholarships</h2>
+                <p>Manage scholarship information.</p>
+                <a href="#scholarships-table" class="open-link link-orange">Open</a>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="student-card box-green">
+                <span class="big-emoji">📄</span>
+                <h2>Applications</h2>
+                <p>Manage scholarship applications.</p>
+                <a href="#applications-table" class="open-link link-green">Open</a>
+            </div>
+
+            <div class="clear-fix"></div> <!-- Standard old school float clearer -->
+        </div>
+
+        <br><br>
+        <hr>
+
+        <!-- 1. STUDENTS TABLE SECTION -->
+        <div id="students-table" class="section-area">
+            <div class="table-title-bar">
+                <span class="table-heading">1. Students List</span>
+                <a href="/add_student" class="top-add-btn btn-green-color">Add Student</a>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>Birthday</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in students %}
+                    <tr>
+                        <td>{{ s.student_id }}</td>
+                        <td>{{ s.name }}</td>
+                        <td>{{ s.email }}</td>
+                        <td>{{ s.mobile }}</td>
+                        <td>{{ s.gender }}</td>
+                        <td>{{ s.address }}</td>
+                        <td>{{ s.birthday }}</td>
+                        <td>
+                            <a href="/edit_student/{{ s.student_id }}" class="text-edit">Edit</a> | 
+                            <a href="/delete_student/{{ s.student_id }}" class="text-delete" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 2. SCHOLARSHIPS TABLE SECTION -->
+        <div id="scholarships-table" class="section-area">
+            <div class="table-title-bar">
+                <span class="table-heading">2. Available Scholarships</span>
+                <a href="/add_scholarship" class="top-add-btn btn-blue-color">Add Scholarship Type</a>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Scholarship ID</th>
+                        <th>Scholarship Name</th>
+                        <th>Amount (Rs.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sch in scholarships %}
+                    <tr>
+                        <td>{{ sch.scholarship_id }}</td>
+                        <td>{{ sch.scholarship_name }}</td>
+                        <td>Rs. {{ sch.amount }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. APPLICATIONS TABLE SECTION -->
+        <div id="applications-table" class="section-area">
+            <div class="table-title-bar">
+                <span class="table-heading">3. Scholarship Applications</span>
+                <a href="/apply" class="top-add-btn btn-purple-color">New Application</a>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>App ID</th>
+                        <th>Student Name</th>
+                        <th>Scholarship Awarded</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for app in applications %}
+                    <tr>
+                        <td>{{ app.application_id }}</td>
+                        <td>{{ app.student.name }}</td>
+                        <td>{{ app.scholarship.scholarship_name }}</td>
+                        <td>Rs. {{ app.scholarship.amount }}</td>
+                        <td><a href="/delete_app/{{ app.application_id }}" class="text-delete">Cancel</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <a href="#" class="scroll-top-btn">↑ Top</a>
+
+</body>
+</html>
